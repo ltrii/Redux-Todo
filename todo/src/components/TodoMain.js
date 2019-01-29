@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { addTodo, toggleTodo, removeTodos, getTodos } from '../actions';
+import TodoForm from './TodoForm';
+import TodoMap from './TodoMap';
 
 class TodoMain extends Component {
     constructor() {
         super();
         this.state = {
-            body: ''
+            todos: [],
         }
     }
     
@@ -24,6 +26,8 @@ todoInput = ev => {
     return (
       <div>
         <h1>Todo</h1>
+        <TodoForm todos={this.state.todos} />
+        <TodoMap todos={this.state.todos} todoInput={this.todoInput} />s
       </div>
     )
   }
