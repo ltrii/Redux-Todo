@@ -12,11 +12,17 @@ const store = createStore(
 )
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      todos: [],
+    }
+  }
   render() {
     return (
       <div className="App">
         <Provider store={store}>
-        <TodoMain />
+        <TodoMain todos={this.state.todos} />
         </Provider>
       </div>
     );

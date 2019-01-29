@@ -8,7 +8,7 @@ class TodoMain extends Component {
     constructor() {
         super();
         this.state = {
-            todos: [],
+            todo: '',
         }
     }
     
@@ -27,7 +27,7 @@ todoInput = ev => {
       <div>
         <h1>Todo</h1>
         <TodoForm todos={this.state.todos} />
-        <TodoMap todos={this.state.todos} todoInput={this.todoInput} />s
+        <TodoMap todos={this.props.todos} todoInput={this.todoInput} />
       </div>
     )
   }
