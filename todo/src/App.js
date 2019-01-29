@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import mainReducer from './reducers';
+import rootReducer from './reducers';
 
 import TodoMain from './components/TodoMain';
 
 import './App.css';
 
 const store = createStore(
-  mainReducer
+  rootReducer
 )
 
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <div className="App">
         <Provider store={store}>
-        <TodoMain todos={this.state.todos} />
+        <TodoMain />
         </Provider>
       </div>
     );

@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { toggleTodo } from '../actions';
+import { connect } from 'react-redux';
 
 class Todo extends Component {
     constructor(props) {
@@ -14,13 +16,14 @@ class Todo extends Component {
             todo: e.target.value
         })
     }
+
   render() {
     return (
       <div>
-        {this.props.todo}
+          {this.state.todo.todo}
       </div>
     )
   }
 }
 
-export default Todo;
+export default connect(null, { toggleTodo })(Todo);

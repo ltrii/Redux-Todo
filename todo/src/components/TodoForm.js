@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { addTodo } from '../actions';
 
 class TodoForm extends Component {
     constructor(props){
@@ -8,29 +9,27 @@ class TodoForm extends Component {
             }
     }
 
-handleTodo(e) {
-    console.log(e);
-    this.setState({
-        todo: e.target.value
-    })
-}
+    handleChanges = event => {
+        this.setState({ [event.target.name]: event.target.value })
+    }
 
-handleSubmit(e) {
-    e.preventDefault();
-    if(this.state.todo != '') {
-        this.props.addTodo(this.state.todo);
+    
+    handleAddTodo = event => {
+        event.preventDefault();
+        const newTodo = { todo: this.state.value, completed: false, id: Date.now() };
+        addTodo(newTodo);
+        console.log("added");
         this.setState({
-            title: ''
+            todo: ''
         })
     }
-}
 
   render() {
     return (
       <div>
-        <form>
-            <input type="text" placeholder="todo" name="todo" required={true} value={this.state.todo} onChange={this.todoInput} />
-            <button onClick={this.handleSubmit.bind(this)}>
+        <form onSubmit={this.handleAddTodo}>
+            <input type="text" placeholder="todo" name="todo" required={true} value={this.state.todo} onChange={this.handleChanges} />
+            <button>
             Add Todo
             </button>
         </form>

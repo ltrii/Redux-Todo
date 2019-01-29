@@ -11,6 +11,14 @@ class TodoMain extends Component {
             todo: '',
         }
     }
+
+    componentDidMount() {
+        const todoAll = JSON.parse(localStorage.getItem('todos'));
+        if(todoAll !== null) {
+            this.props.getTodos(todoAll);
+        }
+    }
+    
     
 completeTodo = todoKey => {
         this.props.toggleTodo(todoKey);
@@ -26,7 +34,7 @@ todoInput = ev => {
     return (
       <div>
         <h1>Todo</h1>
-        <TodoForm todos={this.state.todos} />
+        <TodoForm todos={this.props.todos} />
         <TodoMap todos={this.props.todos} todoInput={this.todoInput} />
       </div>
     )
