@@ -13,7 +13,7 @@ export default (todos = iniTodo, action) => {
     switch (action.type) {
         case ADD_TODO:
             return (
-                todos.concat(action.payload)
+              [...todos, action.payload]
             )
         case TOGGLE_TODO:
             return (

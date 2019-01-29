@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { addTodo } from '../actions';
+import {connect} from 'react-redux';
 
 class TodoForm extends Component {
     constructor(props){
@@ -16,9 +17,9 @@ class TodoForm extends Component {
     
     handleAddTodo = event => {
         event.preventDefault();
-        const newTodo = { todo: this.state.value, completed: false, id: Date.now() };
+        const newTodo = { todo: this.state.todo, completed: false, id: Date.now() };
         addTodo(newTodo);
-        console.log("added");
+        console.log("added", newTodo);
         this.setState({
             todo: ''
         })
@@ -38,4 +39,4 @@ class TodoForm extends Component {
   }
 }
 
-export default TodoForm;
+export default connect( () => ({}), {addTodo} )(TodoForm);

@@ -18,28 +18,34 @@ class TodoMain extends Component {
             this.props.getTodos(todoAll);
         }
     }
-    
-    
-completeTodo = todoKey => {
-        this.props.toggleTodo(todoKey);
-    }
 
-todoInput = ev => {
-    this.setState({ [ev.target.name]: ev.target.value })
-}
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.todos !== this.props.todos) {
+          localStorage.setItem('todos', JSON.stringify(nextProps.todos));
+        }
+    }
+    
+    
+completeTodo = todoID => {
+        this.props.toggleTodo(todoID);
+    }
     
 
 
   render() {
+    console.log(this.props.todos);
     return (
       <div>
         <h1>Todo</h1>
         <TodoForm todos={this.props.todos} />
-        <TodoMap todos={this.props.todos} todoInput={this.todoInput} />
+        <TodoMap todos={this.props.todos} />
       </div>
     )
   }
+
 }
+
+
 
 const mapStateToProps = state => {
     return {
