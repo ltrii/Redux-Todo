@@ -1,5 +1,4 @@
 import { ADD_TODO, TOGGLE_TODO, REMOVE_TODOS, GET_TODOS } from '../actions';
-import { bindActionCreators } from 'redux';
 
 const iniTodo = [
     {
@@ -9,26 +8,30 @@ const iniTodo = [
     },
 ]
 
-export default (todos = iniTodo, action) => {
+const mainReducer = (state = iniTodo, action) => {
     switch (action.type) {
         case ADD_TODO:
             return (
-              [...todos, action.payload]
+              [...state, action.payload]
             )
         case TOGGLE_TODO:
             return (
-                console.log("toggle"),
-                todos.map(todo => {
+                state.map(todo => {
                     return todo
                 }))
         case REMOVE_TODOS:
             return (
-                todos.filter(todo => !todo.completed)
+                state.filter(todo => !todo.completed)
             )
         case GET_TODOS: 
-            return action.payload;
+            
+            return (
+                action.payload
+            )
             
         default:
-            return todos;
+            return state;
     }
 }
+
+export default mainReducer;

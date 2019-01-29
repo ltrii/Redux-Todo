@@ -17,9 +17,8 @@ class TodoForm extends Component {
     
     handleAddTodo = event => {
         event.preventDefault();
-        const newTodo = { todo: this.state.todo, completed: false, id: Date.now() };
+        const newTodo = { todo: this.state.todo, id: Date.now(), completed: false };
         addTodo(newTodo);
-        console.log("added", newTodo);
         this.setState({
             todo: ''
         })
