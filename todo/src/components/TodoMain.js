@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { addTodo, toggleTodo, removeTodos, getTodos } from '../actions';
 
 class TodoMain extends Component {
     constructor() {
@@ -7,6 +9,15 @@ class TodoMain extends Component {
             body: ''
         }
     }
+    
+completeTodo = todoKey => {
+        this.props.toggleTodo(todoKey);
+    }
+
+todoInput = ev => {
+    this.setState({ [ev.target.name]: ev.target.value })
+}
+    
 
 
   render() {
@@ -18,4 +29,15 @@ class TodoMain extends Component {
   }
 }
 
-export default TodoMain;
+const mapStateToProps = state => {
+    return {
+      todos: state.todos
+    };
+  };
+  
+  export default connect(mapStateToProps, {
+    addTodo,
+    toggleTodo,
+    removeTodos,
+    getTodos
+  })(TodoMain);

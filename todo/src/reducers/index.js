@@ -10,21 +10,23 @@ const initialState = {
 function mainReducer(state = initialState, action) {
     switch (action.type) {
         case ADD_TODO:
-            return {
+            return 
+                state.concat(action.payload);
 
-            };
         case TOGGLE_TODO:
-            return {
-
-            };
+            return 
+                state.map(todo => {
+                    return todo
+                })
         case REMOVE_TODOS:
-            return {
-
-            }
+            return 
+                state.filter(todo => !todo.completed)
+            
         case GET_TODOS: 
-            return {
-                
-            }
+            return action.payload
+            
+        default:
+            return state;
     }
 }
 
