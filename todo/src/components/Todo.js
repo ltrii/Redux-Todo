@@ -5,9 +5,7 @@ import { connect } from 'react-redux';
 class Todo extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            todo: this.props.todo,
-            completed: this.props.todo.completed         
+        this.state = {     
         }
     }
 
@@ -19,8 +17,8 @@ class Todo extends Component {
 
   render() {
     return (
-      <div>
-          {this.state.todo.todo}
+      <div className="todoInd">
+          {this.props.todo.todo}
       </div>
     )
   }

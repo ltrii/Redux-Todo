@@ -26,19 +26,19 @@ class TodoMain extends Component {
     }
     
     
-completeTodo = todoID => {
-        this.props.toggleTodo(todoID);
-    }
+    completeTodo = todoID => {
+           this.props.toggleTodo(todoID);
+        }
     
 
 
   render() {
     console.log(this.props.todos);
     return (
-      <div>
+      <div className="appHold">
         <h1>Todo</h1>
-        <TodoForm todos={this.props.todos} />
-        <TodoMap todos={this.props.todos} />
+        <TodoForm />
+        <TodoMap />
       </div>
     )
   }

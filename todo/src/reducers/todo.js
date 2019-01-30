@@ -11,14 +11,11 @@ const iniTodo = [
 const mainReducer = (state = iniTodo, action) => {
     switch (action.type) {
         case ADD_TODO:
-            return (
-              [...state, action.payload]
-            )
+            return [...state, action.payload]
         case TOGGLE_TODO:
-            return (
-                state.map(todo => {
+            return state.map(todo => {
                     return todo
-                }))
+                })
         case REMOVE_TODOS:
             return (
                 state.filter(todo => !todo.completed)

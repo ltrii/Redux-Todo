@@ -15,14 +15,15 @@ class TodoForm extends Component {
     }
 
     
-    handleAddTodo = event => {
-        event.preventDefault();
-        const newTodo = { todo: this.state.todo, id: Date.now(), completed: false };
-        addTodo(newTodo);
-        this.setState({
-            todo: ''
-        })
-    }
+   handleAddTodo = e => {
+      e.preventDefault();
+      const{ todo } = this.state;
+      const newTodo = { todo: todo, id: Date.now(), completed: false };
+      addTodo(newTodo);
+      this.setState({
+          todo: ''
+      })
+  }
 
   render() {
     return (
