@@ -17,11 +17,16 @@ class Todo extends Component {
 
   render() {
     return (
-      <div className="todoInd">
+      <div className="todoInd" >
           {this.props.todo.todo}
       </div>
     )
   }
 }
 
-export default connect(null, { toggleTodo })(Todo);
+const mapStateToProps = (state) => {
+    console.log(state)
+    return ({todos: state.todos})
+}
+
+export default connect(mapStateToProps, { toggleTodo })(Todo);

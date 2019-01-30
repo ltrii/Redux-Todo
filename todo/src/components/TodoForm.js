@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { addTodo } from '../actions';
+import { addTodo, toggleTodo } from '../actions';
 import {connect} from 'react-redux';
 
 class TodoForm extends Component {
@@ -19,7 +19,7 @@ class TodoForm extends Component {
       e.preventDefault();
       const{ todo } = this.state;
       const newTodo = { todo: todo, id: Date.now(), completed: false };
-      addTodo(newTodo);
+      this.props.addTodo(newTodo);
       this.setState({
           todo: ''
       })

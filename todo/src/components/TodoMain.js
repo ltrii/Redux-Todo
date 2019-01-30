@@ -12,18 +12,20 @@ class TodoMain extends Component {
         }
     }
 
-    componentDidMount() {
-        const todoAll = JSON.parse(localStorage.getItem('todos'));
-        if(todoAll !== null) {
-            this.props.getTodos(todoAll);
-        }
-    }
+        //THis works but ADD DOES NOT :O
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.todos !== this.props.todos) {
-          localStorage.setItem('todos', JSON.stringify(nextProps.todos));
-        }
-    }
+    // componentDidMount() {
+    //     const todoAll = JSON.parse(localStorage.getItem('todos'));
+    //     if(todoAll !== null) {
+    //         this.props.getTodos(todoAll);
+    //     }
+    // }
+
+    // componentWillReceiveProps(nextProps) {
+    //     if (nextProps.todos !== this.props.todos) {
+    //       localStorage.setItem('todos', JSON.stringify(nextProps.todos));
+    //     }
+    // }
     
     
     completeTodo = todoID => {

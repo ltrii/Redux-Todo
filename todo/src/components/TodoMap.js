@@ -8,7 +8,7 @@ import { toggleTodo } from '../actions';
 function TodoMap(props) {
   return (
     <div>
-      {props.todos.map((todo, i)=> <Todo key={todo.id} onClick={toggleTodo(todo.id)} todo={todo} style={{textDecorationLine: todo.completed ? 'line-through' : 'none'}} /> )}
+      {props.todos.map((todo, i)=> <Todo key={todo.id} todo={todo} style={{textDecorationLine: todo.completed ? 'line-through' : 'none'}} /> )}
     </div>
   )
 }
@@ -18,4 +18,4 @@ const mapStateToProps = (state) => {
     return ({todos: state.todos})
 }
 
-export default connect(mapStateToProps)(TodoMap);
+export default connect(mapStateToProps, {toggleTodo})(TodoMap);
