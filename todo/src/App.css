@@ -1,0 +1,20 @@
+.App {
+  font-family: 'Rubik', 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+.App .appHold {
+  width: 80%;
+  margin: auto
+}
+
+.App .appHold h1 {
+  font-size: 7em;
+  line-height: 0;
+}
+
+.App .appHold .todoInd {
+  margin-top: 10px;
+  padding: 10px 5px;
+  border: 1px solid black;
+  border-radius: 2px;
+}
